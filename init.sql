@@ -1,0 +1,22 @@
+CREATE TABLE IF NOT EXISTS Cliente (
+  id INT PRIMARY KEY,
+  limite INT NOT NULL,
+  saldo INT NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS Transacao (
+  id SERIAL PRIMARY KEY,
+  idCliente INT REFERENCES Cliente(id) NOT NULL,
+  valor INT NOT NULL,
+  descricao VARCHAR(10) NOT NULL,
+  tipo CHAR(1) NOT NULL,
+  realizadaEm TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL
+);
+
+INSERT INTO Cliente (id, limite, saldo)
+VALUES
+  (1, 100000, 0),
+  (2, 80000, 0),
+  (3, 1000000, 0),
+  (4, 10000000, 0),
+  (5, 500000, 0);
