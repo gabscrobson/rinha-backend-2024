@@ -128,6 +128,7 @@ app.get('/clientes/:id/extrato', async (request, reply) => {
 
 app.listen({
   port: 8080,
+  host: '0.0.0.0'
 }).then(() => {
   console.log('🔥 HTTP server running!')
 })
