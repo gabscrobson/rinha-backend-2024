@@ -36,7 +36,7 @@ services:
       resources:
         limits:
           cpus: "0.25"
-          memory: "100MB"
+          memory: "75MB"
 
   # Database
   db:
@@ -55,4 +55,4 @@ services:
       resources:
         limits:
           cpus: "0.25"
-          memory: "50MB"
+          memory: "75MB"

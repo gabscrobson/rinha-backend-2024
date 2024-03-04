@@ -33,7 +33,13 @@ app.post('/clientes/:id/transacoes', async (request, reply) => {
     descricao: z.string().min(1).max(10),
   })
 
-  const transacao = bodySchema.parse(request.body)
+  let transacao
+  try {
+    transacao = bodySchema.parse(request.body)
+  } catch (error) {
+    reply.status(422)
+    return { error: "Invalid request body" }
+  }
 
   if (transacao.tipo === "d") {
     if (-cliente.limite > cliente.saldo - transacao.valor) {
