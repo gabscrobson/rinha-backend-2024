@@ -22,4 +22,7 @@ model transacao {
   tipo        String   @db.Char(1)
   realizadaem DateTime @default(now()) @db.Timestamp(6)
   cliente     cliente  @relation(fields: [idcliente], references: [id], onDelete: NoAction, onUpdate: NoAction)
+
+  @@index([idcliente], map: "idx_transacao_idcliente")
+  @@index([realizadaem], map: "idx_transacao_realizadaem")
 }
